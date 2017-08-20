@@ -2,6 +2,7 @@ from flask import Flask, request, Response
 from Lista import Lista
 from colaMsg import colaMsg
 from Pila import Pila
+from ListaDoble import ListaDoble
 
 app = Flask("Server")
 
@@ -9,6 +10,7 @@ Listaof = Lista()
 Colaof = colaMsg()
 pSignos = Pila()
 pNumeros = Pila()
+ListaDob = ListaDoble()
 
 ########################################################################
 class ServerFlask():
@@ -58,6 +60,7 @@ class ServerFlask():
                 cadena = Colaof.Desencolar()
                 caracter = ""
                 pilaEjecucion = ""
+                psorden = ""
                 valor = ""
                 numero1 = ""
                 numero2 = ""
@@ -69,6 +72,7 @@ class ServerFlask():
                                 pSignos.push(caracter)
                                 pNumeros.push(valor)
                                 pilaEjecucion = pilaEjecucion + "|" + "push(" + str(valor) + ")"
+                                psorden = psorden  + str(valor) + " "
                                 valor = ""
                         elif caracter in (' ', '('):
                                 valorar = "No hace nada"
@@ -81,6 +85,7 @@ class ServerFlask():
                                 numero1 = pNumeros.pop()
                                 pilaEjecucion = pilaEjecucion + "|" + "pop()"
                                 signo = pSignos.pop()
+                                psorden = psorden  + str(signo) + " "
                                 if signo == '-':
                                         valor = int(numero1) - int(numero2)
                                         pilaEjecucion = pilaEjecucion + "|" + str(numero1) + " - " + str(numero2) + " = " + str(valor) 
@@ -100,10 +105,22 @@ class ServerFlask():
                 respuesta = str(valor) #pNumeros.pop()
                 pilaEjecucion = pilaEjecucion #+"|" + "pop()"
                 #resp = str(ip) + "," +  str(respuesta) + "," + str(cadena) + ":" + str(pilaEjecucion)
-                respu = str(ip) + "," + str(carnet) + "," +  str(respuesta) + "," + str(cadena) + "," + str(pilaEjecucion)
+                respu = str(ip) + "," + str(carnet) + "," +  str(respuesta) + "," + str(cadena) + "," + str(psorden) + "," + str(pilaEjecucion)
                 return respu
 
+        #METODO PARA AGREGAR a Lista Doble
+        @app.route('/respuesta',methods=['POST'])
+        def respuestaLD():
+                inord = str(request.form['inorden'])
+                psorden = str(request.form['postorden'])
+                resultado = str(request.form['resultado'])
+                ipcatch = str(request.environ['REMOTE_ADDR'])
+                carnet = Listaof.consultar(ipcatch)
+                ListaDob.Add(carnet, ipcatch, inord, psorden, resultado)
+                print "true"
+                return "true"
 
+        
 
      #CORRE EL SERVIDOR EN
         if __name__ == "__main__":
