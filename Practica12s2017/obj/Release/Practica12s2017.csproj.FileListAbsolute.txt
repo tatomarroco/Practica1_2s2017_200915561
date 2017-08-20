@@ -1,0 +1,14 @@
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\bin\Release\Practica12s2017.exe.config
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\bin\Release\Practica12s2017.exe
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\bin\Release\Practica12s2017.pdb
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\bin\Release\Bunifu_UI_v1.52.dll
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.AdminMsg.resources
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.ColaMsg.resources
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.frmMP.resources
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.Dashboard.resources
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.Properties.Resources.resources
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.SendMsgPanel.resources
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.csproj.GenerateResource.Cache
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.exe
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.pdb
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.csprojResolveAssemblyReference.cache

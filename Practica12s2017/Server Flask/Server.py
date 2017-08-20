@@ -1,0 +1,113 @@
+from flask import Flask, request, Response
+from Lista import Lista
+from colaMsg import colaMsg
+from Pila import Pila
+
+app = Flask("Server")
+
+Listaof = Lista()
+Colaof = colaMsg()
+pSignos = Pila()
+pNumeros = Pila()
+
+########################################################################
+class ServerFlask():
+    
+    #METODO PARA CONECTADO---------------------------------------------------------------------------------------------------
+        @app.route('/conectado',methods=['GET'])
+        def conect():
+                return "200915561"
+        
+        
+        
+    #METODO PARA MENSAJES
+        @app.route('/mensaje',methods=['POST'])
+        def msg():
+                operacion = str(request.form['inorden'])
+                ipcatch = str(request.environ['REMOTE_ADDR'])
+                Colaof.Encolar(ipcatch, operacion)
+                return "true"
+        
+     #METODO PARA Agregar Usuarios
+        @app.route('/CrearUsuario',methods=['POST'])
+        def enlistar():
+                ip = str(request.form['ip'])
+                mascara = str(request.form['mascara'])
+                Listaof.Add(ip, mascara)
+                return ip
+        
+        #METODO PARA Agregar Usuarios
+        @app.route('/insertarCarnet',methods=['POST'])
+        def insertarCar():
+                ip = str(request.form['ip'])
+                carnet = str(request.form['carnet'])
+                Listaof.Search(ip,carnet)
+                return "Carnet Insertado"        
+        
+        #METODO PARA Saber los mensajes en Cola
+        @app.route('/ncola',methods=['GET'])
+        def tamcola():
+                numero = Colaof.getLongitud()
+                return str(numero)
+
+        #METODO PARA Operar
+        @app.route("/operar", methods=['GET'])
+        def ResolverExpresion():
+                ip = Colaof.peekIP()
+                carnet = Listaof.consultar(ip)
+                cadena = Colaof.Desencolar()
+                caracter = ""
+                pilaEjecucion = ""
+                valor = ""
+                numero1 = ""
+                numero2 = ""
+                signo = ""
+                cantidad = len(cadena)
+                for i in range(cantidad):
+                        caracter = cadena[i]
+                        if caracter in ('/', '*', '-', '+'):
+                                pSignos.push(caracter)
+                                pNumeros.push(valor)
+                                pilaEjecucion = pilaEjecucion + "|" + "push(" + str(valor) + ")"
+                                valor = ""
+                        elif caracter in (' ', '('):
+                                valorar = "No hace nada"
+                        elif caracter == ')':
+                                pNumeros.push(valor)
+                                pilaEjecucion = pilaEjecucion + "|" + "push(" + str(valor) + ")"
+                                valor = ""
+                                numero2 = pNumeros.pop()
+                                pilaEjecucion = pilaEjecucion + "|" + "pop()"
+                                numero1 = pNumeros.pop()
+                                pilaEjecucion = pilaEjecucion + "|" + "pop()"
+                                signo = pSignos.pop()
+                                if signo == '-':
+                                        valor = int(numero1) - int(numero2)
+                                        pilaEjecucion = pilaEjecucion + "|" + str(numero1) + " - " + str(numero2) + " = " + str(valor) 
+                                elif signo == '+':
+                                        valor = int(numero1) + int(numero2)
+                                        pilaEjecucion = pilaEjecucion + "|" + str(numero1) + " + " + str(numero2) + " = " + str(valor)
+                                elif signo == '*':
+                                        valor = int(numero1) * int(numero2)
+                                        pilaEjecucion = pilaEjecucion + "|" + str(numero1) + " * " + str(numero2) + " = " + str(valor)
+                                elif signo == '/':
+                                        valor = int(numero1) / int(numero2)
+                                        pilaEjecucion = pilaEjecucion + "|" + str(numero1) + " / " + str(numero2) + " = " + str(valor)
+                        else:
+                                valor = valor + caracter
+                pNumeros.push(valor)
+                pilaEjecucion = pilaEjecucion + "|" + "push(" + str(valor) + ")"       
+                respuesta = str(valor) #pNumeros.pop()
+                pilaEjecucion = pilaEjecucion #+"|" + "pop()"
+                #resp = str(ip) + "," +  str(respuesta) + "," + str(cadena) + ":" + str(pilaEjecucion)
+                respu = str(ip) + "," + str(carnet) + "," +  str(respuesta) + "," + str(cadena) + "," + str(pilaEjecucion)
+                return respu
+
+
+
+     #CORRE EL SERVIDOR EN
+        if __name__ == "__main__":
+                app.run(debug=True, host='192.168.1.90')       
+    
+        
+        
