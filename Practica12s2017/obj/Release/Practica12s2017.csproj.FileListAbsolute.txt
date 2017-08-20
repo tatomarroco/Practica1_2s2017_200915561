@@ -12,3 +12,4 @@ C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica
 C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.exe
 C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.pdb
 C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.csprojResolveAssemblyReference.cache
+C:\Users\Estuardo\Documents\Visual Studio 2013\Projects\Practica12s2017\Practica12s2017\obj\Release\Practica12s2017.RespuestaMensajes.resources

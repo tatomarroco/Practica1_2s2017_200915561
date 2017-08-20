@@ -22,7 +22,7 @@ class Lista:
         num = str(numero)
         aux = self.Primer
         aux2 = self.Primer
-        index = aux.getIndice()
+        #index = aux.getIndice()
         if aux == None:
             print "No hay elementos en la Lista"
         else:

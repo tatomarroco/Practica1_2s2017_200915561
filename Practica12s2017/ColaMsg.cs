@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -63,14 +64,36 @@ namespace Practica12s2017
 
         public void insertar(string respuesta){ 
             String[] substrings1 = respuesta.Split(',');
-            String[] substrings2 = substrings1[4].Split('|');
-            txtCarnet.Text = substrings1[0];
-            txtIP.Text = substrings1[1];
+            String[] substrings2 = substrings1[5].Split('|');
+            txtCarnet.Text = substrings1[1];
+            txtIP.Text = substrings1[0];
             txtResult.Text = substrings1[2];
             txtInorden.Text = substrings1[3];
+            txtPostorden.Text = substrings1[4];
 
             for (int ej = 1; ej <= substrings2.Length - 1; ej++){
                 lstbxEjecucion.Items.Add(substrings2[ej]);    
+            }
+
+            
+                using (var cliente = new WebClient()){
+                    try{
+                        var parametros = new NameValueCollection();
+                        parametros["inorden"] = substrings1[3];
+                        parametros["postorden"] = substrings1[4];
+                        parametros["resultado"] = substrings1[2];
+
+                        var rserver = cliente.UploadValues("http://" + substrings1[0] + ":5000/respuesta", parametros);
+                        var rString = Encoding.Default.GetString(rserver);
+                        //result = MessageBox.Show("Usuario Insertado", "Sistema");
+                        Console.WriteLine(rString);
+                    }
+                    catch (Exception ex){
+                        Console.WriteLine("No es posible conectar con: " + substrings1[0] + "\n Error: " + ex.Message);
+                    }
+                
+                    
+                
             }
             
 
