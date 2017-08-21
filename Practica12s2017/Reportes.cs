@@ -50,7 +50,7 @@ namespace Practica12s2017
                     Console.WriteLine("No es posible conectar con: " + ls.getMyIp() + "\n Error: " + ex.Message);
                 }
 
-                picBox.Image = Image.FromFile(@"C:\\Users\\Estuardo\\Documents\\Visual Studio 2013\\Projects\\Practica12s2017\\Practica12s2017\\img\\cola.jpg");
+                picBox.Image = Image.FromFile(@"C:\img\cola.jpg");
 
             }
 
@@ -60,7 +60,7 @@ namespace Practica12s2017
 
         public void crearImagen(string archivo)
         {
-            var procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/C dot -Tjpg C:\\Users\\Estuardo\\Documents\\Visual Studio 2013\\Projects\\Practica12s2017\\Practica12s2017\\Server_Flask C:\\Users\\l_enr\\Desktop\\" + archivo + ".txt -o C:\\Users\\Estuardo\\Documents\\Visual Studio 2013\\Projects\\Practica12s2017\\Practica12s2017\\img\\cola.jpg");
+            var procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/C dot -Tjpg C:\\Users\\Estuardo\\Documents\\Visual Studio 2013\\Projects\\Practica12s2017\\Practica12s2017\\Server_Flask\\" + archivo + ".txt -o C:\\img\\cola.jpg");
         }
 
 

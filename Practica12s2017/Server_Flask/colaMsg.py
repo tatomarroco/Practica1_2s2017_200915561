@@ -5,7 +5,7 @@ class colaMsg():
     
     def __init__(self):
         self.Cabeza = None
-        self. Cola = None
+        self.Cola = None
         
         
     def Encolar(self, Ip, Message):
@@ -59,7 +59,7 @@ class colaMsg():
         tempu = self.Cabeza
         tempd = self.Cabeza
         try:
-            archivo = open("Cola.txt", mode='w')
+            archivo = open('Cola.txt','w')
             archivo.write("digraph G{ \n")
             
             while (tempu!=None):
@@ -90,6 +90,7 @@ class colaMsg():
             archivo.close()
         
         except:
+            print "Ocurrio un Error al escribir Archivo"
             return "Ocurrio un Error al escribir Archivo"
         
         nombreArchivo = "Cola"
