@@ -50,7 +50,7 @@ class colaMsg():
     def setLongitud(self, Longitud):
         self.longitud = Longitud
         
-    #---------------------GRAFICAR--COLA-----------------------------------------------------------------
+    #---------------------GRAFICAR--COLA----------------------------------------------------------------
     def Graficar(self):
         nombreArchivo = None
         cont1 = 0
@@ -59,13 +59,13 @@ class colaMsg():
         tempu = self.Cabeza
         tempd = self.Cabeza
         try:
-            archivo = open('Cola.txt','w')
+            archivo = open('c:/img/Cola.txt','w')
             archivo.write("digraph G{ \n")
             
             while (tempu!=None):
-                ip = tempu.getDato()
+                ip = tempu.getIp()
                 op = tempu.getMessage()
-                archivo.write("n"+str(ip) + "_nodo_" + str(cont1) + " [label="+str(ip)+ "\n"+  str(op)+"] \n")
+                archivo.write("nodo_" + str(cont1) + " [label=<"+str(ip)+ " "+  str(op)+">] \n")
                 cont1 = cont1 + 1
                 tempu = tempu.Sig
             
@@ -76,9 +76,9 @@ class colaMsg():
             
             while tempu != None:
                 if tempd != None:
-                    data1 = tempu.getIp
-                    data2 = tempd.getIp
-                    archivo.write("n"+str(data1) + "_nodo_" + str(cont1) + "->" + "n"+str(data2) +"_nodo_"+str(cont2)+"\n")
+                    data1 = tempu.getIp()
+                    data2 = tempd.getIp()
+                    archivo.write("nodo_" + str(cont1) + "->" + "nodo_"+str(cont2)+"\n")
                     cont1 = cont1 + 1
                     cont2 = cont2 + 1
                 if tempd == None:

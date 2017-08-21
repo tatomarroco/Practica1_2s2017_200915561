@@ -125,7 +125,7 @@ class ServerFlask():
         def consulta():
                 resultado = ListaDob.recorrer()
                 print resultado
-                return resultado
+                return str(resultado)
         
         #---------------------GRAFICAR COLA-----------------------------
         @app.route('/graficar',methods=['GET'])

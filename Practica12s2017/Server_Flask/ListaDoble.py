@@ -22,7 +22,7 @@ class ListaDoble():
                 if(aux.Sig == None):
                     self.Ultimo.Sig = Nuevo
                     Nuevo.Ant = self.Ultimo
-                    self.Ultimo = nuevo
+                    self.Ultimo = Nuevo
                     break
                 aux = aux.Sig
         self.longitud +=  1
@@ -34,10 +34,11 @@ class ListaDoble():
         ant = None
         contact=""
         if (self.Primero == None):
-            return contact
+            return str(contact)
         else:
             while (aux != None):
-                    contact+= aux.getCarnet() + "," + aux.getIp() + "," + aux.getInorden() + "," + aux.getPostOrden + "," + aux.getResultado() + "|"
+                    contact+= str(aux.getCarnet()) + "," + str(aux.getIp()) + "," + str(aux.getInorden()) + "," + str(aux.getPostOrden()) + "," + str(aux.getResultado()) + "|"
                     ant = aux
-                    aux = aux.Sig     
-            return contact
+                    aux = aux.Sig
+            print contact
+            return str(contact)

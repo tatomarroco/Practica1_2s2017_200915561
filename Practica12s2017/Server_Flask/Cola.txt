@@ -1,1 +1,15 @@
 digraph G{ 
+nodo_0 [label=<192.168.1.95 (5-3)>] 
+nodo_1 [label=<192.168.1.95 (5-3)>] 
+nodo_2 [label=<192.168.1.95 (5-3)>] 
+nodo_3 [label=<192.168.1.95 (5-3)>] 
+nodo_4 [label=<192.168.1.95 (5-3)>] 
+nodo_5 [label=<192.168.1.95 (5-3)>] 
+nodo_6 [label=<192.168.1.95 (5-3)>] 
+nodo_0->nodo_1
+nodo_1->nodo_2
+nodo_2->nodo_3
+nodo_3->nodo_4
+nodo_4->nodo_5
+nodo_5->nodo_6
+}

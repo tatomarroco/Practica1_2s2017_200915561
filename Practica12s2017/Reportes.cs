@@ -37,17 +37,21 @@ namespace Practica12s2017
 
         public void graficar()
         {
+            bool x = false;
 
             using (var cliente = new WebClient()){
                 try
                 {
                     var respuesta = cliente.DownloadString("http://" + ls.getMyIp() + ":5000/graficar");
                     Console.WriteLine("respuesta: " + respuesta);
-                    crearImagen(respuesta);
+                    
+                        crearImagen();
+                    
+                    
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("No es posible conectar con: " + ls.getMyIp() + "\n Error: " + ex.Message);
+                    Console.WriteLine("Error: " + ex.Message);
                 }
 
                 picBox.Image = Image.FromFile(@"C:\img\cola.jpg");
@@ -58,11 +62,26 @@ namespace Practica12s2017
         }
 
 
-        public void crearImagen(string archivo)
+        public void crearImagen()
         {
-            var procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/C dot -Tjpg C:\\Users\\Estuardo\\Documents\\Visual Studio 2013\\Projects\\Practica12s2017\\Practica12s2017\\Server_Flask\\" + archivo + ".txt -o C:\\img\\cola.jpg");
+            try
+            {
+                var StartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/C dot -Tjpg C:\\img\\Cola.txt -o C:\\img\\cola.jpg");
+                var proceso = new System.Diagnostics.Process();
+
+                proceso.StartInfo = StartInfo;
+
+                proceso.Start();
+
+                proceso.WaitForExit();
+
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.ToString());
+            }
+            }
         }
 
-
     }
-}
+

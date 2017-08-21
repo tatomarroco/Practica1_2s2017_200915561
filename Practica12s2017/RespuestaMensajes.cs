@@ -16,6 +16,17 @@ namespace Practica12s2017
         lstsem ls = new lstsem();
         DataTable dt = new DataTable();
         DataRow row;
+        public static int control = 0;
+
+        public int getControl(){
+            return control;
+        }
+
+        public void setControl(int c)
+        {
+            control = c;
+        }
+
 
         public RespuestaMensajes()
         {
@@ -24,16 +35,24 @@ namespace Practica12s2017
 
         private void label1_Click(object sender, EventArgs e)
         {
+            dt.Clear();
+            //dvg.Rows.Clear();
+            
+            dvg.DataSource = "";
+            dvg.Refresh();
             this.Close();
         }
 
         private void RespuestaMensajes_Load(object sender, EventArgs e)
         {
-            dt.Columns.Add("carnet");
-            dt.Columns.Add("ip");
-            dt.Columns.Add("inorden");
-            dt.Columns.Add("postorden");
-            dt.Columns.Add("resultado");
+            if (getControl() == 0){ 
+                dt.Columns.Add("carnet");
+                dt.Columns.Add("ip");
+                dt.Columns.Add("inorden");
+                dt.Columns.Add("postorden");
+                dt.Columns.Add("resultado");
+                setControl(1);
+            }
 
             Obtener();
 
@@ -42,6 +61,11 @@ namespace Practica12s2017
 
         private void button3_Click(object sender, EventArgs e)
         {
+            dt.Clear();
+            //dvg.Rows.Clear();
+            
+            dvg.DataSource= "";
+            dvg.Refresh();
             this.Close();
         }
 
@@ -68,7 +92,7 @@ namespace Practica12s2017
             String[] substrings1 = respuesta.Split('|');
 
 
-            for (int ej = 0; ej <= substrings1.Length - 1; ej++)
+            for (int ej = 0; ej < substrings1.Length - 1; ej++)
             {
                 String[] substrings2 = substrings1[ej].Split(',');
                 row = dt.NewRow();
