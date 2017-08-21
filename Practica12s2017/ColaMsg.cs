@@ -101,5 +101,10 @@ namespace Practica12s2017
 
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

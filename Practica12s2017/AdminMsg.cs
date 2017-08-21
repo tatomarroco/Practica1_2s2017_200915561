@@ -15,6 +15,7 @@ namespace Practica12s2017
 
         SendMsgPanel sndmsgpnl = new SendMsgPanel();
         ColaMsg colamsgpnl = new ColaMsg();
+        RespuestaMensajes rsptMsg = new RespuestaMensajes();
         public AdminMsg()
         {
             InitializeComponent();
@@ -45,6 +46,12 @@ namespace Practica12s2017
         private void AdminMsg_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            rsptMsg.StartPosition = FormStartPosition.CenterScreen;
+            rsptMsg.ShowDialog();
         }
     }
 }

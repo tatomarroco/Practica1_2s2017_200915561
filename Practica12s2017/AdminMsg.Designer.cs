@@ -80,6 +80,7 @@
             this.bunifuThinButton22.Size = new System.Drawing.Size(209, 69);
             this.bunifuThinButton22.TabIndex = 7;
             this.bunifuThinButton22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton22.Click += new System.EventHandler(this.bunifuThinButton22_Click);
             // 
             // btnVerCola
             // 

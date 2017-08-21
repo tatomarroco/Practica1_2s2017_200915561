@@ -120,7 +120,11 @@ class ServerFlask():
                 print "true"
                 return "true"
 
-        
+        @app.route('/consultar',methods=['GET'])
+        def consulta():
+                resultado = ListaDob.recorrer()
+                print resultado
+                return resultado        
 
      #CORRE EL SERVIDOR EN
         if __name__ == "__main__":

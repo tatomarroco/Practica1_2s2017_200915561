@@ -30,10 +30,14 @@ class ListaDoble():
     
     #----------------------------------------------------------------------
     def recorrer(self):
-        """"""
-        
-        
-        
-        
-    
-    
+        aux = self.Primero
+        ant = None
+        contact=""
+        if (self.Primero == None):
+            return contact
+        else:
+            while (aux != None):
+                    contact+= aux.getCarnet() + "," + aux.getIp() + "," + aux.getInorden() + "," + aux.getPostOrden + "," + aux.getResultado() + "|"
+                    ant = aux
+                    aux = aux.Sig     
+            return contact

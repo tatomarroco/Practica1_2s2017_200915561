@@ -26,10 +26,20 @@ class NodoLD():
 
     #----------------------------------------------------------------------
     def setCarnet(self, Carnet):
-        self.carnet = Carnet    
-
-    
+        self.carnet = Carnet
         
+    #----------------------------------------------------------------------
+    def getInorden(self):
+        return self.inorden
         
+    #----------------------------------------------------------------------
+    def setInorden(self, Carnet):
+        self.carnet = Carnet
+        
+    #----------------------------------------------------------------------
+    def getPostOrden(self):
+        return self.postorden
     
-    
+    #----------------------------------------------------------------------
+    def getResultado(self):
+        return self.resultado
