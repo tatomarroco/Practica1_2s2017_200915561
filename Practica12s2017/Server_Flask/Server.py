@@ -120,11 +120,19 @@ class ServerFlask():
                 print "true"
                 return "true"
 
+        #METODO Para consultar la Lista Doble
         @app.route('/consultar',methods=['GET'])
         def consulta():
                 resultado = ListaDob.recorrer()
                 print resultado
-                return resultado        
+                return resultado
+        
+        #---------------------GRAFICAR COLA-----------------------------
+        @app.route('/graficar',methods=['GET'])
+        def graficarCola():
+                archivo = Colaof.Graficar()
+                return archivo
+                
 
      #CORRE EL SERVIDOR EN
         if __name__ == "__main__":

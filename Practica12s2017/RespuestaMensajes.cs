@@ -64,8 +64,7 @@ namespace Practica12s2017
         }
 
 
-        public void insertar(string respuesta)
-        {
+        public void insertar(string respuesta){
             String[] substrings1 = respuesta.Split('|');
 
 

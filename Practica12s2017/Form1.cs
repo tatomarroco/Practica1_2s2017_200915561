@@ -14,6 +14,7 @@ namespace Practica12s2017
     {
         Dashboard frm2 = new Dashboard();
         AdminMsg frm3 = new AdminMsg();
+        Reportes frm4 = new Reportes();
         public frmMP()
         {
             InitializeComponent();
@@ -33,7 +34,8 @@ namespace Practica12s2017
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            frm4.StartPosition = FormStartPosition.CenterScreen;
+            frm4.ShowDialog();
         }
 
         private void frmMP_Load(object sender, EventArgs e)
