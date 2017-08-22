@@ -10,6 +10,9 @@ using System.Security;
 using System.Collections;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using System.IO;
+using System.Management;
+using System.Threading;
 
 
 namespace Practica12s2017
@@ -101,6 +104,7 @@ namespace Practica12s2017
             int control=0;
                while (aux != null){
                    if (control == 2){
+                       
                        CrearUsuario(ip, mascara);
                        control = 0;
                       
@@ -129,6 +133,11 @@ namespace Practica12s2017
                            myip = auxi.getvalor();
                            auxi = auxi2.Sig;
                            mymasc = auxi.getvalor();
+                           setIP(myip, mymasc);
+                           Thread.Sleep(5000);
+                           changeIPServidor();
+
+                           
                        }
                        else{}
                    }
@@ -158,6 +167,59 @@ namespace Practica12s2017
                 
             }
         }
+
+
+        public void changeIPServidor()
+        {
+            try
+            {
+                string variable = "app.run(debug=True, host='" + getMyIp() + "')";
+                string variable2 = string.Format("\n{0}\t\t{1}", "", variable);
+                var arvhivo = "C:\\Server_Flask\\Server.py";
+                guardar(variable2, arvhivo);
+                var pcsInfo = new System.Diagnostics.ProcessStartInfo("cmd", @"/C python C:\Server_Flask\Server.py");
+                var proc = new System.Diagnostics.Process();
+                proc.StartInfo = pcsInfo;
+                proc.Start();
+                //proc.WaitForExit();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n Error: " + e.Message);
+            }
+        }
+
+
+        public void guardar(string variable, string archivo)
+        {
+            StreamWriter sw = new StreamWriter(archivo, true);
+            sw.WriteLine(variable);
+            sw.Close();
+        }
+
+
+        public static void setIP(string ip_address, string subnet_mask)
+        {
+            ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection objMOC = objMC.GetInstances();
+            foreach (ManagementObject objMO in objMOC)
+            {
+                if ((bool)objMO["IPEnabled"])
+                {
+                    try
+                    {
+                        ManagementBaseObject setIP;
+                        ManagementBaseObject newIP = objMO.GetMethodParameters("EnableStatic");
+                        newIP["IPAddress"] = new string[] { ip_address };
+                        newIP["SubnetMask"] = new string[] { subnet_mask };
+                        setIP = objMO.InvokeMethod("EnableStatic", newIP, null);
+                    }
+                    catch (Exception) { throw; }
+                }
+            }
+        }
+
+        
         
 
     }

@@ -21,7 +21,13 @@ namespace Practica12s2017
         }
 
         private void lblClose_Click(object sender, EventArgs e){
-            
+            lstbxEjecucion.Items.Clear();
+            lstbxEjecucion.Refresh();
+            txtCarnet.Text = "";
+            txtInorden.Text = "";
+            txtIP.Text = "";
+            txtPostorden.Text = "";
+            txtResult.Text = "";
             this.Close();
         }
 
@@ -45,6 +51,8 @@ namespace Practica12s2017
         }
 
         private void btnOperar_Click(object sender, EventArgs e){
+            lstbxEjecucion.Items.Clear();
+            lstbxEjecucion.Refresh();
             Operar();
             lblNumCola.Text = obtenerNumCola();
         }

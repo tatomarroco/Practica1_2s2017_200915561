@@ -42,3 +42,18 @@ class ListaDoble():
                     aux = aux.Sig
             print contact
             return str(contact)
+        
+    #----------------------------------------------------------------------
+    def recorrerDes(self):
+        aux = self.Ultimo
+        sig = None
+        contact=""
+        if (self.Ultimo == None):
+            return str(contact)
+        else:
+            while (aux != None):
+                    contact+= str(aux.getCarnet()) + "," + str(aux.getIp()) + "," + str(aux.getInorden()) + "," + str(aux.getPostOrden()) + "," + str(aux.getResultado()) + "|"
+                    sig = aux
+                    aux = aux.Ant
+            print contact
+            return str(contact)

@@ -107,6 +107,40 @@ namespace Practica12s2017
             dvg.DataSource = dt;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+            dvg.DataSource = "";
+            dvg.Refresh();
+            Obtener();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+            dvg.DataSource = "";
+            dvg.Refresh();
+            ObtenerDes();
+        }
+
+        public void ObtenerDes()
+        {
+            using (var cliente = new WebClient())
+            {
+                try
+                {
+                    var respuesta = cliente.DownloadString("http://" + ls.getMyIp() + ":5000/consultar2");
+                    Console.WriteLine("respuesta: " + respuesta);
+                    insertar(respuesta);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No es posible conectar con: " + ls.getMyIp() + "\n Error: " + ex.Message);
+                }
+            }
+        }
+
     }
 
     }

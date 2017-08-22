@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Practica12s2017
 {
@@ -42,9 +43,10 @@ namespace Practica12s2017
             using (var cliente = new WebClient()){
                 try
                 {
+
                     var respuesta = cliente.DownloadString("http://" + ls.getMyIp() + ":5000/graficar");
                     Console.WriteLine("respuesta: " + respuesta);
-                    
+                    Thread.Sleep(8000);
                         crearImagen();
                     
                     
@@ -53,7 +55,7 @@ namespace Practica12s2017
                 {
                     Console.WriteLine("Error: " + ex.Message);
                 }
-
+                Thread.Sleep(5000);
                 picBox.Image = Image.FromFile(@"C:\img\cola.jpg");
 
             }
@@ -66,13 +68,13 @@ namespace Practica12s2017
         {
             try
             {
-                var StartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/C dot -Tjpg C:\\img\\Cola.txt -o C:\\img\\cola.jpg");
+                var pInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/C dot -Tjpg C:\\img\\Cola.txt -o C:\\img\\cola.jpg");
                 var proceso = new System.Diagnostics.Process();
 
-                proceso.StartInfo = StartInfo;
+                proceso.StartInfo = pInfo;
 
                 proceso.Start();
-
+                Thread.Sleep(3000);
                 proceso.WaitForExit();
 
             }

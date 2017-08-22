@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.dvg = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.lblClose = new System.Windows.Forms.Label();
             this.carnet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inorden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postorden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblClose = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvg)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,52 +59,6 @@
             this.dvg.ReadOnly = true;
             this.dvg.Size = new System.Drawing.Size(566, 225);
             this.dvg.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Firebrick;
-            this.panel1.Controls.Add(this.lblClose);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 36);
-            this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(38, 317);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Mostrar empezando por los mas antiguos";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(399, 317);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(205, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Mostrar empezando por los mas recientes";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Location = new System.Drawing.Point(38, 359);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(566, 23);
-            this.btnRegresar.TabIndex = 4;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // lblClose
-            // 
-            this.lblClose.Image = global::Practica12s2017.Properties.Resources.close1;
-            this.lblClose.Location = new System.Drawing.Point(610, 1);
-            this.lblClose.Name = "lblClose";
-            this.lblClose.Size = new System.Drawing.Size(35, 35);
-            this.lblClose.TabIndex = 0;
-            this.lblClose.Click += new System.EventHandler(this.label1_Click);
             // 
             // carnet
             // 
@@ -148,6 +102,54 @@
             this.resultado.Name = "resultado";
             this.resultado.ReadOnly = true;
             this.resultado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Firebrick;
+            this.panel1.Controls.Add(this.lblClose);
+            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(646, 36);
+            this.panel1.TabIndex = 1;
+            // 
+            // lblClose
+            // 
+            this.lblClose.Image = global::Practica12s2017.Properties.Resources.close1;
+            this.lblClose.Location = new System.Drawing.Point(610, 1);
+            this.lblClose.Name = "lblClose";
+            this.lblClose.Size = new System.Drawing.Size(35, 35);
+            this.lblClose.TabIndex = 0;
+            this.lblClose.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(38, 317);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Mostrar empezando por los mas antiguos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(371, 317);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(233, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Mostrar empezando por los mas recientes";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Location = new System.Drawing.Point(38, 359);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(566, 23);
+            this.btnRegresar.TabIndex = 4;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.button3_Click);
             // 
             // RespuestaMensajes
             // 
